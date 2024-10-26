@@ -1,7 +1,6 @@
 #include <stdio.h>
 
-struct Vector
-{
+struct Vector {
 	int x;
 	int y;
 	int z;
@@ -56,8 +55,7 @@ int main() {
 	printf("입력된 첫 번째 벡터 %d,  %d,  %d\n", v1.x, v1.y, v1.z);
 	printf("입력된 두 번째 벡터 %d,  %d,  %d\n", v2.x, v2.y, v2.z);
 
-	while (order != 5)
-	{
+	while (order != 5) {
 		printf("---------------------\n 1. 벡터의 합\n 2. 벡터의 차 \n 3. 벡터의 외적 \n 4. 백터의 내적 \n 5. 종료 \n--------------------- \n");
 		printf("명령 입력 : ");
 		scanf_s("%d", &order);
