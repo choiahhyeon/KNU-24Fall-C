@@ -61,4 +61,6 @@ int main() {
 		scanf_s("%d", &order);
 		calculate(order, v1, v2);
 	}
+
+	return 0;
 }
