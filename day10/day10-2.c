@@ -1,4 +1,3 @@
-#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -25,7 +24,6 @@ int compare_customers(struct Customer* a, struct Customer* b) {
 void insert_customer(const char* name, enum rank rank, int order_amount, int point) {
     struct Customer* newCustomer = (struct Customer*)malloc(sizeof(struct Customer));
     if (newCustomer == NULL) {
-        printf("메모리 할당 실패\n");
         return;
     }
     newCustomer->customerName = _strdup(name);
@@ -88,7 +86,6 @@ void update_customer(const char* name, enum rank rank, int order_amount, int poi
 
 void print_customers() {
     printf("----------------------------\n");
-    printf("고객 목록:\n");
     struct Customer* current = head;
     while (current) {
         printf("이름: %s, 등급: %d, 주문량: %d, 포인트: %d\n",
@@ -114,9 +111,7 @@ int main() {
     int customerRank, order_amount, point;
 
     while (1) {
-        print_customers();
-
-        printf("1. 고객 추가\n2. 고객 삭제\n3. 고객 수정\n4. 종료\n");
+        printf("1. 고객 추가\n2. 고객 삭제\n3. 고객 수정\n4. 전체 고객 목록 출력\n5. 종료\n");
         printf("input : ");
         scanf_s("%d", &choice);
 
@@ -148,6 +143,9 @@ int main() {
             update_customer(name, (enum rank)customerRank, order_amount, point);
         }
         else if (choice == 4) {
+            print_customers();
+        }
+        else if (choice == 5) {
             free_customers();
             printf("프로그램을 종료합니다.\n");
             break;
