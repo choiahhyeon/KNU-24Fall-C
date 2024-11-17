@@ -13,7 +13,6 @@ struct NODE* head = NULL;
 struct NODE* create_node(char* name, int score) {
     struct NODE* new_node = (struct NODE*)malloc(sizeof(struct NODE));
     if (new_node == NULL) {
-        printf("메모리 할당에 실패했습니다.\n");
         return NULL;
     }
     strcpy_s(new_node->name, sizeof(new_node->name), name);
@@ -117,7 +116,7 @@ int main() {
     int score;
 
     while (1) {
-        printf("\n1. 학생의 성적을 입력\n2. 학생 정보 제거\n3. 프로그램 종료\n");
+        printf("1. 학생의 성적을 입력\n2. 학생 정보 제거\n3. 프로그램 종료\n");
         printf("input : ");
 
         if (scanf_s("%d", &choice) != 1) {
@@ -131,11 +130,7 @@ int main() {
             printf("학생 이름: ");
             scanf_s("%s", name, sizeof(name));
             printf("%s의 성적: ", name);
-            if (scanf_s("%d", &score) != 1) {
-                printf("잘못된 입력입니다. 숫자를 입력하세요.\n");
-                while (getchar() != '\n');
-                continue;
-            }
+            scanf_s("%d", &score);
             insert_node_last(name, score);
             sort_nodes();
             print_nodes();
