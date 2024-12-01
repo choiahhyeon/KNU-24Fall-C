@@ -41,7 +41,7 @@ int main() {
     int topping2[] = { 1, 2, 3, 1, 4 };
     size_t size2 = sizeof(topping2) / sizeof(topping2[0]);
 
-    printf("topping\tresult\n");
+    printf("result\n");
     printf("[1, 2, 1, 3, 1, 4, 1, 2]\t%d\n", solution(topping1, size1));
     printf("[1, 2, 3, 1, 4]\t%d\n", solution(topping2, size2));
 
